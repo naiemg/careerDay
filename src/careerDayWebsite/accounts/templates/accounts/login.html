@@ -1,0 +1,35 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block head %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="{% static 'css/signin.css' %}">
+<title>Login</title>
+{% endblock %}
+
+
+{% block body %}
+<div class="container">
+
+    <body class="text-center">
+        <form method="post" class="form-signin">
+            {% csrf_token %}
+            <img class="mb-4" src="https://cdn.onlinewebfonts.com/svg/img_519216.png" alt="" width="120" height="120">
+            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+            {{ form|crispy }}
+            <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                </label>
+            </div>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        </form>
+    </body>
+</div>
+{% endblock %}

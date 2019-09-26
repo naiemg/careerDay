@@ -1,0 +1,75 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  {% block head %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  {% endblock %}
+
+</head>
+
+<body>
+  <br>
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        {% if user.is_authenticated %}
+        <ul class="navbar-nav">
+          <a class="navbar-brand" href=".">CareerDay</a>
+          <li><a class="nav-link" href="/account/">Home <span class="sr-only">(current)</span></a></li>
+          <li><a class="nav-link" href="/account/profile">Profile <span class="sr-only">(current)</span></a></li>
+          <li><a class="nav-link" href="/account/profile/edit">Edit Account <span class="sr-only">(current)</span></a>
+          </li>
+          <li><a class="nav-link" href="/account/profile/edit/detailed">Edit Profile <span
+                class="sr-only">(current)</span></a>
+          </li>
+          <li><a class="nav-link" href="/account/change-password">Change Password <span
+                class="sr-only">(current)</span></a></li>
+          <li><a class="nav-link" href="/account/reset-password">Reset Password <span
+                class="sr-only">(current)</span></a></li>
+          <li><a class="nav-link" href="/account/logout">Log Out <span class="sr-only">(current)</span></a></li>
+
+        </ul>
+        {% else %}
+        <ul class="navbar-nav">
+          <a class="navbar-brand" href="/">CareerDay</a>
+          <li><a class="nav-link" href="/account/login">Login <span class="sr-only">(current)</span></a></li>
+          <li><a class="nav-link" href="/account/register">Register <span class="sr-only">(current)</span></a></li>
+        </ul>
+        {% endif %}
+      </div>
+    </nav>
+  </div>
+  <br>
+  {% block body %}
+  <h1> from the base</h1>
+
+  {% endblock %}
+  <br>
+  <br>
+  <br>
+  <!-- Footer -->
+  <footer class="page-footer font-small blue">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+      <a href="/"> CareerDay.com</a>
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
+</body>
+
+</html>

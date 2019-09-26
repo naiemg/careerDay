@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<title>Profile</title>
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <p>
+        <br>
+        <h1><b>{{ user.first_name }} {{ user.last_name }}</b></h1>
+        <h5>{{ user.userprofile.occupation }} | {{ user.userprofile.location }}</h5>
+        <hr>
+        <div class="container" id='bio'>
+            <h7>{{ user.userprofile.description }}</h7>
+        </div>
+        <hr>
+        <h4><b>Fun Fact: </b>{{ user.userprofile.fun_fact }}</h4>
+    </p>
+</div>
+{% endblock %}

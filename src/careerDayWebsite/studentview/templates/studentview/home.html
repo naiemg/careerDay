@@ -1,0 +1,66 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/student_home.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CareerDay</title>
+</head>
+
+<body>
+    <div class="logo">
+        <h1><b>CareerDay<b></h1>
+
+        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+            <a class="btn btn-dark" href="/account/login" role="button">Login</a>
+            <a class="btn btn-dark" href="/account/register" role="button">Register</a>
+        </div>
+    </div>
+
+    {% for info in user_data %}
+    <div class="sidenav">
+        <h6><b>What's the meaning of . . .</b></h6>
+        <form method="post">
+            {% csrf_token %}
+            {{ unknownWordForm|crispy }}
+            <button type="input" value="submit" class="btn btn-dark btn-sm btn-block"><b>Definition</b></button>
+        </form>
+        <hr>
+        <h6 class="definition"><b>{{ word }} - </b> {{ definition }}</h6>
+    </div>
+    <div class="container" style="max-width: 50%;">
+        <div class="card-deck">
+            <div class="card">
+                <div class="card-body">
+                    <!-- <img class="card-img-top" src="{{ info.userprofile.image }}" alt="Card image cap"> -->
+                    <h1 class="card-title">{{ info.first_name }} {{ info.last_name }}</h1>
+                    <h4>{{ info.userprofile.occupation }} | {{ info.userprofile.location }}</h4>
+                    <hr>
+                    <h6 class="card-text">{{ info.userprofile.description }}</h6>
+                    <hr>
+                    <div class="btn-group btn-group-lg" role="group" aria-label="Like/Dislike" id="like_dislike">
+                        <button type="button" class="btn btn-success"><i class="material-icons">thumb_up</i></button>
+                        <button type="button" class="btn btn-danger"><i class="material-icons">thumb_down</i></button>
+                    </div>
+                    <div class="btn-group btn-group-lg" role="group" aria-label="Question/Share" id="comment_share">
+                        <button type="button" class="btn btn-warning"><i
+                                class="material-icons">message</i></button>
+                        <button type="button" class="btn btn-info"><i class="material-icons">share</i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    {% endfor %}
+
+</html>
