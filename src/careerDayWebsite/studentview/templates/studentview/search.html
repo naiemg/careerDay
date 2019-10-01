@@ -1,0 +1,28 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Search</title>
+</head>
+
+<body>
+  <div class="container">
+    <br>
+      <h1>Find role models nearby!</h1>
+    <form method="POST" class="post-form">{% csrf_token %}
+      <h4>My zipcode is . . . </h4>{{ form|crispy }}
+      <button type="submit" class="btn btn-primary btn-lg btn-block">Search</button>
+    </form>
+  </div>
+
+</body>
+
+</html>

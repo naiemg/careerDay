@@ -1,12 +1,24 @@
 from django.shortcuts import render
 from accounts.models import UserProfile, User
-from studentview.forms import unknownWordForm
+from studentview.forms import unknownWordForm, studentZipcode
 import requests
 import json
+from django.http import HttpResponseRedirect
 
-def home (request):
+
+def home(request):
+    if request.method == 'POST':
+        form = studentZipcode(request.POST)
+        if form.is_valid():
+            my_zip_code = form.cleaned_data['zip_code']
+            return results(request, my_zip_code)
+    else:
+        form = studentZipcode()
+    return render(request, 'studentView/search.html', {'form': form})
+
+def results (request, my_zip_code):
     context_dict={}
-    users = User.objects.all()
+    users = User.objects.filter(userprofile__zip_code = my_zip_code)
     context_dict['user_data']=users
     context_dict['unknownWordForm']=unknownWordForm
     if request.method == 'POST':
@@ -17,7 +29,7 @@ def home (request):
             context_dict['definition'] = getDefinition(word)
     else:
         form = unknownWordForm()
-    return render(request, 'studentview/home.html', context_dict)
+    return render(request, 'studentview/results.html', context_dict)
 
 def getDefinition(word):
     app_id = "3295402c"
