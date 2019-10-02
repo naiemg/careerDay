@@ -6,6 +6,11 @@ Find Professional Role Models Nearby
 * Bootstrap
 * Oxford Dictionaries API
 
+
+## Demo
+#### Search feature sorts professionals by zipcode.
+![Search Feature](https://github.com/naiemg/careerDay/blob/master/media/ezgif.com-video-to-gif.gif "Search Feature")
+
 ## Progress
 | Tasks                                       | WIP                     | Completed                             |
 | :-------------                              |:-------------           | :-----                                |
@@ -14,7 +19,3 @@ Find Professional Role Models Nearby
 | Commenting system                           |                         | Search Role Models by zipcode         |
 | Likes/dislikes system                       |                         | Word Lookup Feature                   |
 | Fix issue with profile images               |                         |                                       |
-
-## Demo
-#### Search feature sorts professionals by zipcode.
-![Search Feature](https://github.com/naiemg/careerDay/blob/master/media/ezgif.com-video-to-gif.gif "Search Feature")
