@@ -1,4 +1,10 @@
 # careerDay
+Find Professional Role Models Nearby
+
+## Tools
+* Django
+* Bootstrap
+* Oxford Dictionaries API
 
 # Progress
 | Tasks                                       | WIP                     | Completed                             |
@@ -10,5 +16,5 @@
 | Fix issue with profile images               |                         |                                       |
 
 ## Demo
-
+#### Search feature sorts professionals by zipcode.
 ![Search Feature](https://github.com/naiemg/careerDay/blob/master/media/ezgif.com-video-to-gif.gif "Search Feature")
