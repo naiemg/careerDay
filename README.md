@@ -6,7 +6,7 @@ Find Professional Role Models Nearby
 * Bootstrap
 * Oxford Dictionaries API
 
-# Progress
+## Progress
 | Tasks                                       | WIP                     | Completed                             |
 | :-------------                              |:-------------           | :-----                                |
 | Create an easy to use search page           |  Word Lookup Feature redirecting to wrong place                     | User, Login & Logout                  |
